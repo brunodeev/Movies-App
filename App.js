@@ -1,10 +1,17 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StatusBar } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import Routes from './src/routes';
+
 
 export default function MoviesApp() {
  return (
-   <View style={{ marginTop: 100}}>
-    <Text style={{color: 'red', fontSize: 35}}>Bruno César</Text>
-   </View>
+   <NavigationContainer>
+    <StatusBar hidden={true} />
+    <Routes/>
+   </NavigationContainer>
   );
 }
