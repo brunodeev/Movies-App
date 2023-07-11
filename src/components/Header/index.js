@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Container, MenuButton, Title } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-function Header(){
+function Header({title}){
 
     const navigation = useNavigation();
 
@@ -18,7 +18,7 @@ function Header(){
                     color='#FFF'
                 />
             </MenuButton>
-            <Title>React Prime</Title>
+            <Title>{title}</Title>
         </Container>
     )
 }
