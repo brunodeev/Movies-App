@@ -12,6 +12,7 @@ import {
 
 import Header from '../../components/Header';
 import { Feather } from '@expo/vector-icons';
+import SliderItem from '../../components/SliderItem'
 
 
 function Home(){
@@ -38,7 +39,8 @@ function Home(){
 
                 <SliderMovie
                     horizontal={true}
-                    data={[1, 2, 3, 4, 5]}
+                    data={[1, 2, 3, 4]}
+                    renderItem={({item}) => <SliderItem/> }
                 />
             </ScrollView>
         </Container>
