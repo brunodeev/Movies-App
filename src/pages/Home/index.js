@@ -28,7 +28,7 @@ function Home(){
                 </SearchButton>
             </SearchContainer>
 
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Title>Em Cartaz</Title>
                 <BannerButton activeOpacity={.9} onPress={() => alert('TESTEEES')}>
                     <Banner
@@ -39,7 +39,8 @@ function Home(){
 
                 <SliderMovie
                     horizontal={true}
-                    data={[1, 2, 3, 4]}
+                    showsHorizontalScrollIndicator={false}
+                    data={[1, 3, 3, 3, 4]}
                     renderItem={({item}) => <SliderItem/> }
                 />
             </ScrollView>
