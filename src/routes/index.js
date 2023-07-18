@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Movies from '../pages/Movies';
-import StackRoutes from './stackRoutes';
+import StackRoutes from './StackRoutes';
 
 const Drawer = createDrawerNavigator();
 
