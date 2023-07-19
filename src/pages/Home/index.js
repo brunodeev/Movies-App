@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, ActivityIndicator } from 'react-native';
 
 import { 
     Container, 
@@ -25,9 +25,12 @@ function Home(){
     const [popularMovies, setPopularMovies] = useState([]);
     const [topMovies, setTopMovies] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
 
         let isActive = true;
+        const abort = new AbortController();
 
         async function getMovies(){
             const [nowData, popularData, topData] = await Promise.all([
@@ -54,18 +57,36 @@ function Home(){
                 })
             ]);
 
-            const nowList = getListMovies(10, nowData.data.results);
-            const popularList = getListMovies(7, popularData.data.results);
-            const topList = getListMovies(3, topData.data.results);
+            if(isActive){
+                const nowList = getListMovies(10, nowData.data.results);
+                const popularList = getListMovies(7, popularData.data.results);
+                const topList = getListMovies(3, topData.data.results);
 
-            setNowMovies(nowList);
-            setPopularMovies(popularList);
-            setTopMovies(topList);
+                setNowMovies(nowList);
+                setPopularMovies(popularList);
+                setTopMovies(topList);
+
+                setLoading(false);
+            }
+
         };
 
         getMovies();
 
+        return () => {
+            isActive = false;
+            abort.abort();
+        }
+
     }, []);
+
+    if(loading){
+        return (
+            <Container>
+                <ActivityIndicator size='large' color='#FFF' />
+            </Container>
+        );
+    }
 
     return(
         <Container>
