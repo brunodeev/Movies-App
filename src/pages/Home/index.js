@@ -16,7 +16,7 @@ import SliderItem from '../../components/SliderItem';
 
 import api, { key } from '../../services/api';
 
-import { getListMovies } from '../../utils/movie';
+import { getListMovies, randomBanner } from '../../utils/movie';
 
 
 function Home(){
@@ -24,6 +24,7 @@ function Home(){
     const [nowMovies, setNowMovies] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
     const [topMovies, setTopMovies] = useState([]);
+    const [bannerMovie, setBannerMovie] = useState({});
 
     const [loading, setLoading] = useState(true);
 
@@ -59,8 +60,10 @@ function Home(){
 
             if(isActive){
                 const nowList = getListMovies(10, nowData.data.results);
-                const popularList = getListMovies(7, popularData.data.results);
-                const topList = getListMovies(3, topData.data.results);
+                const popularList = getListMovies(10, popularData.data.results);
+                const topList = getListMovies(10, topData.data.results);
+
+                setBannerMovie(nowData.data.results[randomBanner(nowData.data.results)]);
 
                 setNowMovies(nowList);
                 setPopularMovies(popularList);
@@ -106,7 +109,7 @@ function Home(){
                 <BannerButton activeOpacity={.9} onPress={() => alert('TESTEEES')}>
                     <Banner
                         resizeMethod='resize'
-                        source={{ uri: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=859&q=80' }}
+                        source={{ uri: `https://image.tmdb.org/t/p/original/${bannerMovie.poster_path}` }}
                     />
                 </BannerButton>
 
