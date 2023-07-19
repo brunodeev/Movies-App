@@ -16,6 +16,8 @@ import SliderItem from '../../components/SliderItem';
 
 import api, { key } from '../../services/api';
 
+import { getListMovies } from '../../utils/movie';
+
 
 function Home(){
 
@@ -51,8 +53,14 @@ function Home(){
                     }
                 })
             ]);
-            console.log(response.data);
 
+            const nowList = getListMovies(10, nowData.data.results);
+            const popularList = getListMovies(7, popularData.data.results);
+            const topList = getListMovies(3, topData.data.results);
+
+            setNowMovies(nowList);
+            setPopularMovies(popularList);
+            setTopMovies(topList);
         };
 
         getMovies();
@@ -84,24 +92,27 @@ function Home(){
                 <SliderMovie
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    data={[1, 3, 3, 3, 4]}
-                    renderItem={({item}) => <SliderItem/> }
+                    data={nowMovies}
+                    renderItem={({item}) => <SliderItem data={item} /> }
+                    keyExtractor={(item) => String(item.id)}
                 />
 
                 <Title>Populares</Title>
                 <SliderMovie
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    data={[1, 3, 3, 3, 4]}
-                    renderItem={({item}) => <SliderItem/> }
+                    data={popularMovies}
+                    renderItem={({item}) => <SliderItem data={item} /> }
+                    keyExtractor={(item) => String(item.id)}
                 />
 
                 <Title>Mais Votados</Title>
                 <SliderMovie
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    data={[1, 3, 3, 3, 4]}
-                    renderItem={({item}) => <SliderItem/> }
+                    data={topMovies}
+                    renderItem={({item}) => <SliderItem data={item} /> }
+                    keyExtractor={(item) => String(item.id)}
                 />
 
             </ScrollView>
