@@ -100,7 +100,7 @@ function Home(){
 
     return(
         <Container>
-            <Header title={'React Prime'}/>
+            <Header title={'Filmes +'}/>
             <SearchContainer>
                 <Input
                     placeholder='Ex.: Vingadores'
