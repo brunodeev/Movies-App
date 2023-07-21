@@ -41,4 +41,17 @@ export const Title = styled.Text`
 
 export const ContentArea = styled.View`
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 14px;
+`;
+
+export const Rate = styled.Text`
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+`;
+
+export const ListGenres = styled.FlatList`
+    padding-left: 14px;
 `;

@@ -6,6 +6,8 @@ import {
     Banner,
     Title,
     ContentArea,
+    Rate,
+    ListGenres,
 } from './styles';
 
 import { Feather, Ionicons } from '@expo/vector-icons';
@@ -50,6 +52,9 @@ function Detail(){
 
     }, []);
 
+    var rate = movie.vote_average;
+    rate = Number.parseFloat(rate).toFixed(1);
+
     return (
         <Container>
             <Header>
@@ -86,6 +91,7 @@ function Detail(){
                 emptyStar={<Ionicons name='md-star-outline' size={20} color='#E7A74e'/>}
                 halfStar={<Ionicons name='md-star-half' size={20} color='#E7A74e'/>}
                 />
+                <Rate>{rate}/10</Rate>
             </ContentArea>
             </ScrollView>
         </Container>
