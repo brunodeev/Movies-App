@@ -25,10 +25,10 @@ export const HeaderButtom = styled.TouchableOpacity`
 `;
 
 export const Banner = styled.Image`
+    margin-top: -220px;
     width: 100%;
-    height: 430px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    height: 620px;
+    border-radius: 40px;
 `;
 
 export const Title = styled.Text`
@@ -43,7 +43,7 @@ export const ContentArea = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 14px;
+    padding: 8px 14px;
 `;
 
 export const Rate = styled.Text`
@@ -54,4 +54,7 @@ export const Rate = styled.Text`
 
 export const ListGenres = styled.FlatList`
     padding-left: 14px;
+    margin: 12px 0;
+    max-height: 30px;
+    min-height: 30px;
 `;

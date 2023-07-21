@@ -16,6 +16,7 @@ import api, { key } from '../../services/api';
 
 import Stars from 'react-native-stars';
 import { ScrollView } from 'react-native-gesture-handler';
+import Genres from '../../components/Genres';
 
 function Detail(){
 
@@ -76,23 +77,33 @@ function Detail(){
 
             <ScrollView>
             <Banner
-            resizeMethod='resize'
+            resizeMode='contain'
             source={{ uri: `https://image.tmdb.org/t/p/original/${movie.poster_path}` }}
             />
-            <Title numberOfLines={1}>{movie.title}</Title>
+            <Title numberOfLines={2}>{movie.title}</Title>
 
             <ContentArea>
                 <Stars
-                deault={movie.vote_average}
+                default={movie.vote_average}
                 count={10}
-                half={true}
+                enableHalfStar={true}
                 starSize={20}
                 fullStar={<Ionicons name='md-star' size={20} color='#E7A74e'/>}
                 emptyStar={<Ionicons name='md-star-outline' size={20} color='#E7A74e'/>}
                 halfStar={<Ionicons name='md-star-half' size={20} color='#E7A74e'/>}
+                disabled={true}
                 />
                 <Rate>{rate}/10</Rate>
             </ContentArea>
+
+            <ListGenres
+                data={movie?.genres}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={(item) => String(item.id)}
+                renderItem={({item}) => <Genres data={item}/>}
+            />
+
             </ScrollView>
         </Container>
     );

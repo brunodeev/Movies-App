@@ -1,14 +1,14 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-    height: 70px;
+    height: 50px;
     flex-direction: row;
     align-items: center;
     padding-left: 10px ;
 `;
 
 export const MenuButton = styled.TouchableOpacity`
-    height: 70px;
+    height: 50px;
     flex-direction: row;
     align-items: center;
 `;
