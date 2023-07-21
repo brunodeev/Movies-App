@@ -26,9 +26,9 @@ export const HeaderButtom = styled.TouchableOpacity`
 
 export const Banner = styled.Image`
     width: 100%;
-    height: 350px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    height: 430px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
 `;
 
 export const Title = styled.Text`
@@ -37,4 +37,8 @@ export const Title = styled.Text`
     font-weight: bold;
     margin-top: 30px;
     margin-left: 14px;
+`;
+
+export const ContentArea = styled.View`
+    flex-direction: row;
 `;

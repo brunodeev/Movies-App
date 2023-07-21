@@ -5,11 +5,15 @@ import {
     HeaderButtom,
     Banner,
     Title,
+    ContentArea,
 } from './styles';
 
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import api, { key } from '../../services/api';
+
+import Stars from 'react-native-stars';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function Detail(){
 
@@ -65,11 +69,25 @@ function Detail(){
                 </HeaderButtom>
             </Header>
 
+            <ScrollView>
             <Banner
             resizeMethod='resize'
             source={{ uri: `https://image.tmdb.org/t/p/original/${movie.poster_path}` }}
             />
             <Title numberOfLines={1}>{movie.title}</Title>
+
+            <ContentArea>
+                <Stars
+                deault={movie.vote_average}
+                count={10}
+                half={true}
+                starSize={20}
+                fullStar={<Ionicons name='md-star' size={20} color='#E7A74e'/>}
+                emptyStar={<Ionicons name='md-star-outline' size={20} color='#E7A74e'/>}
+                halfStar={<Ionicons name='md-star-half' size={20} color='#E7A74e'/>}
+                />
+            </ContentArea>
+            </ScrollView>
         </Container>
     );
 }
