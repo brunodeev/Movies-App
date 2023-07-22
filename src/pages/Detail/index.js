@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import {
     Container,
     Header,
@@ -8,6 +8,7 @@ import {
     ContentArea,
     Rate,
     ListGenres,
+    Description,
 } from './styles';
 
 import { Feather, Ionicons } from '@expo/vector-icons';
@@ -19,12 +20,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Genres from '../../components/Genres';
 
 function Detail(){
-
     const navigation = useNavigation();
     const route = useRoute();
 
     const [movie, setMovie] = useState({});
-
     useEffect(() => {
         let isActive = true;
 
@@ -103,6 +102,11 @@ function Detail(){
                 keyExtractor={(item) => String(item.id)}
                 renderItem={({item}) => <Genres data={item}/>}
             />
+
+            <Title>Descrição</Title>
+            <Description>
+                {movie?.overview}
+            </Description>
 
             </ScrollView>
         </Container>

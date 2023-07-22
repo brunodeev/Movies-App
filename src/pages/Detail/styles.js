@@ -12,7 +12,7 @@ export const Header = styled.View`
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    padding: 45px 14px;
+    padding: 45px 10px;
 `;
 
 export const HeaderButtom = styled.TouchableOpacity`
@@ -36,14 +36,15 @@ export const Title = styled.Text`
     font-size: 30px;
     font-weight: bold;
     margin-top: 30px;
-    margin-left: 14px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 `;
 
 export const ContentArea = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 14px;
+    padding: 5px 10px;
 `;
 
 export const Rate = styled.Text`
@@ -53,8 +54,17 @@ export const Rate = styled.Text`
 `;
 
 export const ListGenres = styled.FlatList`
-    padding-left: 14px;
+    padding-left: 10px;
     margin: 12px 0;
     max-height: 30px;
     min-height: 30px;
+`;
+
+export const Description = styled.Text`
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    color: #fff;
+    line-height: 20px;
 `;
