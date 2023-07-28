@@ -91,7 +91,7 @@ function Home(){
     }
 
     function handleSearchMovie(){
-        console.log(input);
+        navigation.navigate('Search');
     }
 
     if(loading){
