@@ -7,7 +7,9 @@ import Search from '../pages/Search';
 
 const Stack = createNativeStackNavigator();
 
+
 function StackRoutes(){
+
     return(
         <Stack.Navigator>
             <Stack.Screen
@@ -32,6 +34,7 @@ function StackRoutes(){
             component={Search}
             options={{
                 title: 'Sua Busca',
+                headerBackTitle: '',
                 headerTintColor: '#FFF',
                 headerStyle:{
                     backgroundColor: '#141a29',

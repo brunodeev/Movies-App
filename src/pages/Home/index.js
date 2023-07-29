@@ -91,7 +91,11 @@ function Home(){
     }
 
     function handleSearchMovie(){
-        navigation.navigate('Search');
+
+        if(input === '') return;
+
+        navigation.navigate('Search', { name: input });
+        setInput('');
     }
 
     if(loading){
